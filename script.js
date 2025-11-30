@@ -378,3 +378,33 @@ btnSave.onclick = () => {
     doSearch(); // Boshida saqlangan ingredientlar bo'lsa, natijalarni ko'rsatadi, aks holda barchasini ko'rsatadi.
     
 })();
+
+// --- Sarlavhani o‘zgartirish funksiyalari ---
+function showMenuTitle() {
+    document.getElementById("resultsTitle").innerText = "MENYUDAGI TAOMLAR";
+}
+
+function showSearchTitle() {
+    document.getElementById("resultsTitle").innerText = "QIDIRISH NATIJALARI";
+}
+
+function showSmartTitle() {
+    document.getElementById("resultsTitle").innerText = "SMART TAVSIYA TAOMLARI";
+}
+searchBtn.onclick = () => {
+    if(!ingredients.length) {
+        alert('Kerakli ingredientlarni qo\'shing!');
+        return;
+    }
+    showSearchTitle();   // ← sarlavha o‘zgardi
+    doSearch();
+};
+smartBtn.onclick = () => {
+    showSmartTitle();    // ← sarlavha o‘zgardi
+    smartSearch();
+};
+menuBtn.onclick = () => {
+    showMenuTitle();     // ← sarlavha o‘zgardi
+    showAllRecipes();
+};
+
